@@ -1,0 +1,30 @@
+mongoDB insert
+
+db.emp.insert({
+	e_id:'1',
+	e_name:'1',
+	gen:'1',
+	addr:'1'
+	
+});
+
+
+mongoDB update
+
+db.emp.update(
+{e_id: "3"}, 
+{$set : {e_id: "6", e_name: "6", gen: "6" , addr: "6"}}, 
+{upsert: true})
+
+mongoDB remove
+
+db.emp.remove(
+{e_id: "6"}, 
+{upsert: true}
+);
+
+mongoDB select
+db.getCollection('emp').find({e_id:"2"})
+
+mongoDB e_id: "2"보다 작은 컬럼
+db.emp.find({'e_id':{$gt:'2'}});
