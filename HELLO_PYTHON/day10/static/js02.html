@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#it01,#it02,#it03,#it04{
+	width: 20px;
+}
+</style>
+<script type="text/javascript">
+function myclick(){
+	var obj_1 = document.getElementById("it01");
+	var obj_2 = document.getElementById("it02");
+	var obj_3 = document.getElementById("it03");
+	var obj_4 = document.getElementById("it04");
+	
+	var a = parseInt(obj_1.value);
+	var b = parseInt(obj_2.value);
+	var c = parseInt(obj_3.value);
+	
+	
+	var sum = 0
+	for(var i=a;i<=b;i++){
+		if(i%c==0){
+			sum += i;	
+		}
+	}
+	obj_4.value = sum;
+
+
+}
+</script>
+</head>
+<body>
+EX02<br>
+<table border="1px">
+	<tr>
+		<td><input type="text" id="it01" /></td>
+		<td>에서</td>
+		<td><input type="text" id="it02" /></td>
+		<td>까지</td>
+		<td><input type="text" id="it03" /></td>
+		<td><input type="button" value="배수합은" onclick="myclick()" /></td>
+		<td><input type="text" id="it04" /></td>
+	</tr>
+</table>
+
+</body>
+</html>

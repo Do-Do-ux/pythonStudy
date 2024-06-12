@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#it01,#it02,#it03,#it04{
+	width: 20px;
+}
+</style>
+<script src="jquery-3.7.1.js"></script>
+<script type="text/javascript">
+function myclick(){
+
+	var a = parseInt($("#it01").val());
+	var b = parseInt($("#it02").val());
+	var c = parseInt($("#it03").val());
+	
+	
+	var sum = 0
+	for(var i=a;i<=b;i++){
+		if(i%c==0){
+			sum += i;	
+		}
+	}
+	$("#it04").val(sum);
+
+}
+$(document).ready(function(){
+	$("#btn").on("click", function(event) {  
+		myclick();
+	});
+});
+</script>
+</head>
+<body>
+EX02<br>
+<table border="1px">
+	<tr>
+		<td><input type="text" id="it01" /></td>
+		<td>에서</td>
+		<td><input type="text" id="it02" /></td>
+		<td>까지</td>
+		<td><input type="text" id="it03" /></td>
+		<td><input type="button" value="배수합은" id="btn" /></td>
+		<td><input type="text" id="it04" /></td>
+	</tr>
+</table>
+
+</body>
+</html>

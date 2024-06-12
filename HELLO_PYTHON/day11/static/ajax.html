@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.7.1.js"></script>
+<script type="text/javascript">
+
+function fn_ajax(){
+	let param = {
+		"menu" : "치킨"
+	};
+	
+	$.ajax({
+	    url: '/ajax',
+	    method: 'POST',
+	    data : JSON.stringify(param),
+	    dataType : 'JSON',
+	    contentType : "application/json",
+	    success: function (resp) {
+	       console.log(resp)
+	    }
+	   
+
+	});
+}
+
+</script>
+</head>
+<body>
+<a href="javascript:fn_ajax()">ajax</a>
+</body>
+</html>
