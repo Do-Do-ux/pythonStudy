@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.7.1.js"></script>
+<script type="text/javascript">
+
+function fn_ajax(){
+	var a = 0;
+	var b = 0;
+	
+	$.ajax({
+	    url: '/ajax1',
+	    method: 'POST',
+	    dataType : 'JSON',
+	    contentType : "application/json",
+	    async :false,
+	    success: function (resp) {
+	     a = resp.result;
+	    }
+	});
+	$.ajax({
+	    url: '/ajax2',
+	    method: 'POST',
+	    dataType : 'JSON',
+	    contentType : "application/json",
+	    async :false,
+	    success: function (resp) {
+	     b = resp.result;
+	    }
+	});
+	
+	sum = a+b;
+	console.log(sum);
+}
+
+</script>
+</head>
+<body>
+<a href="javascript:fn_ajax()">sync</a>
+</body>
+</html>

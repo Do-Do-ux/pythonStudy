@@ -1,0 +1,25 @@
+redirect<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+let param = new FormData();
+function fn_fetch(){
+	param.append("menu", "치킨")
+	fetch('/fetch', {method: "POST", body: param})
+	  .then(function(res) {
+	    return res.json();
+	  })
+	  .then(function(res) {
+		  console.log(res);
+	    // data를 응답받은 후의 로직
+	  });
+}
+
+</script>
+</head>
+<body>
+<a href="javascript:fn_fetch()">fetch</a>
+</body>
+</html>

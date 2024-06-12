@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.7.1.js"></script>
+<script type="text/javascript">
+function fn_list(){
+	fetch('/emp_list', {method: "POST"})
+	  .then((res) =>
+	    res.json())
+	  .then((data) => {
+			console.log(data);		  
+	  });
+	
+}
+</script>
+</head>
+<body>
+EMP<br>
+<a href="javascript:fn_list()">list</a><br>
+
+<a href="javascript:fn_list()"></a>
+<table border="1px">
+	<thead>
+		<tr>
+			<td>사번</td>
+			<td>이름</td>
+			<td>성별</td>
+			<td>주소</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in list %}
+	<tr>
+		<td><a href="emp_detail?e_id={{i['e_id']}}">{{i['e_id']}}</a></td>
+		<td>{{i['e_name']}}</td>
+		<td>{{i['gen']}}</td>
+		<td>{{i['addr']}}</td>
+	</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+<table border="1px">
+	<tr>
+		<td>사번</td>
+		<td>
+			<input type="text" id="e_id"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="text" id="e_name"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="text" id="gen"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="text" id="addr"/>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" value="추가"/>
+			<input type="button" value="수정"/>
+			<input type="button" value="삭제"/>
+		</td>
+	</tr>
+
+</table>
+</body>
+</html>

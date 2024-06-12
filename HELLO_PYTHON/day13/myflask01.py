@@ -1,18 +1,13 @@
-from flask import Flask
+from flask import Flask ,redirect
 from flask.globals import request
 from flask.templating import render_template
 from flask.json import jsonify
+from day13.dao_emp import DaoEmp
 app = Flask(__name__)
  
 @app.route('/')
 def main():
-    return 'Hello'
-
-@app.route('/ajax' , methods=['POST'])
-def ajax():
-    data = request.get_json()
-    print(data['menu'])
-    return jsonify(result = "ok")
+    return redirect("/static/emp.html")
 
 @app.route('/fetch' , methods=['POST'])
 def fetch():
@@ -20,14 +15,12 @@ def fetch():
     print(menu)
     return jsonify(result = "ok")
 
-
-@app.route('/axios' , methods=['POST'])
-def axios():
-    data = request.get_json()
-    print(data['menu'])
-    return jsonify(result = "ok")
-
-
+@app.route('/emp_list' , methods=['POST'])
+def emp_list():
+    de = DaoEmp()
+    list = de.selectList()
+    print(list)
+    return jsonify(list = list)
 
 if __name__ == '__main__':
     app.run(host="localhost", debug=True)
